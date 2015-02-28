@@ -1,5 +1,13 @@
 *.class
 
+# Eclipse related
+.project
+.settings
+.metadata
+.classpath
+*/bin/*
+*/gen/*
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
