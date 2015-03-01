@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Buy4Me</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="verify_phone_button_text">Verify</string>
     <string name="action_settings">Settings</string>  
     
 	<string name="test_url">http://jsonip.com/</string>
