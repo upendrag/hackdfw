@@ -2,6 +2,7 @@ package edu.utdallas.hack.buyforme;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,11 +12,30 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-
+	private static final String LOCAL_PREFERENCES_NAME = "Local_Preferences";
+	private static final String KEY_RETURNING_INSTANCE = "isReturningInstance";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        
+        SharedPreferences sp = getSharedPreferences(LOCAL_PREFERENCES_NAME, 0);
+        boolean isFirstTimeLaunch = sp.getBoolean(KEY_RETURNING_INSTANCE, false);
+        if(isFirstTimeLaunch)
+        	launchFirstTime();
+        else
+        	launchHomeActivity();
+    }
+
+
+	private void launchHomeActivity() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void launchFirstTime() {
+		setContentView(R.layout.activity_main);
         
         Button verifyPhoneButton = (Button) findViewById(R.id.verifyPhoneButton);
         verifyPhoneButton.setOnClickListener(new OnClickListener() {
@@ -25,7 +45,7 @@ public class MainActivity extends Activity {
 				onVerifyPhoneClicked(view);
 			}
 		});
-    }
+	}
 
 
     protected void onVerifyPhoneClicked(View view) {
